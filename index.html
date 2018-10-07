@@ -19,12 +19,12 @@
 <body>
   <header>
     <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
+      <h1><a href="/" tabindex="1" aria-label="Home">Restaurant Reviews</a></h1>
     </nav>
   </header>
 
   <main id="maincontent">
-    <section id="map-container" aria-hidden="true" aria-labelledby="search map" role="application">
+    <section id="map-container" aria-hidden="true" aria-labelledby="search map" role="application" aria-label="Map">
       <div id="map"></div>
     </section>
     <label id="map-aria-description" class="map-aria-description">Mapbox application</label>
@@ -32,11 +32,11 @@
       <div class="filter-options">
         <h2>Filter Results</h2>
         <div class="filter-selections">
-          <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+          <select tabindex="2" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
             <option value="all">All Neighborhoods</option>
           </select>
           <label id="neighborhoods-label" class="filter-label">filter-by-neighborhoods</label>
-          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+          <select  tabindex="2" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
             <option value="all">All Cuisines</option>
           </select>
           <label id="cuisines-label" class="filter-label">filter-by-cuisines</label>
