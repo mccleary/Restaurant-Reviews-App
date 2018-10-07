@@ -1,28 +1,25 @@
-// navigator.serviceWorker.register('/sw.js').then(function(reg) {
-//   console.log('yay!');
-// }).catch(function(err) {
-//   console.log('Boo!');
-// });
-
 var staticCacheName = 'restaurant-static-v1';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cacheAll([
+    caches.open(staticCacheName).then(function(cache) {
+      return cache.addAll([
+        '/',
         'index.html',
         'restaurant.html',
-        '/css/main.css',
+        '/css/styles.css',
         '/css.responsive.css',
         '/js/dbhelper.js',
         '/js/main.js',
         '/js/restaurant_info.js',
+        '/data/restaurants.json',
+        '/js/register.js',
         'sw.js',
         '/img/*'
-      ])
-    }));
+      ]);
+    })
+  );
 });
-
 
 self.addEventListener('activate', function(event) {
   event.waitUntil(
@@ -39,16 +36,12 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-
 self.addEventListener('fetch', function(event) {
   event.respondWith(
-    fetch(event.request).then(function(response) {
-      if(response.status == 404) {
-        return new Response('Oops, Something went wrong!');
-      }
-      return response;
-    }).catch(function() {
-      return new Response('Oh no, still not right!');
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
+    }).catch(function(error) {
+      console.log(error);
     })
   );
 });
