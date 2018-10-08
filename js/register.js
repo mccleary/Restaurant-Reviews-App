@@ -4,16 +4,3 @@ navigator.serviceWorker.register('/sw.js').then(function(reg) {
 }).catch(function(err) {
   console.log('Boo! Registration failed: ' + err);
 });
-
-
-
-// if ("serviceWorker" in navigator) {
-//   navigator.serviceWorker
-//   .register("/sw.js")
-//   .then(reg => {
-//     console.log("Service worker Reg successful: " + reg.scope);
-//   })
-//   .catch(error => {
-//     console.log("Registration failed: " + error);
-//   });
-// }
