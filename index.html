@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,6 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
   <script type="application/javascript" src="js/register.js"></script>
   <title>Restaurant Reviews</title>
-
-  <style media="screen">
-  img {
-    max-width: 100%;
-  }
-  </style>
 </head>
 
 <body>
@@ -24,7 +18,7 @@
   </header>
 
   <main id="maincontent">
-    <section id="map-container" aria-hidden="true" aria-labelledby="search map" role="application" aria-label="Map">
+    <section id="map-container" aria-labelledby="search map" role="application" aria-label="Map" tabindex="-1">
       <div id="map"></div>
     </section>
     <label id="map-aria-description" class="map-aria-description">Mapbox application</label>
@@ -36,7 +30,7 @@
             <option value="all">All Neighborhoods</option>
           </select>
           <label id="neighborhoods-label" class="filter-label">filter-by-neighborhoods</label>
-          <select  tabindex="2" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+          <select  tabindex="3" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
             <option value="all">All Cuisines</option>
           </select>
           <label id="cuisines-label" class="filter-label">filter-by-cuisines</label>
